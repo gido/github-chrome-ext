@@ -5,9 +5,27 @@
 }
 
 .gh-ext-testfile {
-	border: 1px solid #4b89d0 !important;
+    border: 1px solid #4b89d0 !important;
 }
 .gh-ext-testfile .meta {
-	/* I need help for choosing colors... */
-	background-image: linear-gradient(#eaf3fd, #a7caff) !important;
+    /* I need help for choosing colors... */
+    background-image: linear-gradient(#eaf3fd, #a7caff) !important;
+}
+
+.gh-ext-add-line-mark {
+    position: absolute;
+    left: 0;
+    width: 25px;
+    height: 16px;
+    margin-left: -40px;
+    color: #ff7777;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.file-diff-line:hover .gh-ext-add-line-mark,
+.gh-ext-line-marked .gh-ext-add-line-mark {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
 }

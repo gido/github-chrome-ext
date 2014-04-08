@@ -47,6 +47,13 @@ function isTestFile(filename) {
     return !!filename.match(TEST_FILE_REGEXP);
 }
 
+function markLine(event) {
+    var line = findParentBySelector(event.target, '.file-diff-line');
+
+    line.classList.toggle('gh-ext-line-marked');
+}
+
+
 var files = document.querySelectorAll("#files .file");
 
 for(var i = 0; i < files.length; i++) {
@@ -59,4 +66,15 @@ for(var i = 0; i < files.length; i++) {
     if (isTestFile(filename)) {
         file.classList.add('gh-ext-testfile');
     }
+}
+
+var linesOfCode = document.querySelectorAll('.js-file-line .diff-line-code');
+
+for(var i=0; i < linesOfCode.length; i++) {
+    var line = linesOfCode[i];
+    var mark = document.createElement('b');
+    mark.addEventListener('click', markLine);
+    mark.className = 'gh-ext-add-line-mark octicon octicon-pin';
+
+    line.insertBefore(mark, line.querySelector('.add-line-comment'));
 }
