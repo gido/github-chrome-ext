@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "Github",
+  "description": "Make better code review with Github !",
+  "version": "1.0",
+  "content_scripts" : [
+    {
+      "matches" : [
+        "https://github.com/*"
+      ],
+      "js" : ["contentscript.js"],
+      "css": ["styles.css"],
+      "run_at" : "document_idle",
+      "all_frames" : false
+    }
+  ],
+  "permissions": [
+    "tabs"
+  ],
+  "icons" : {
+      "48" : "icon.png",
+      "128" : "icon.png"
+  }
+}
