@@ -3,3 +3,11 @@
     height: 22px;
     overflow: hidden;
 }
+
+.gh-ext-testfile {
+	border: 1px solid #4b89d0 !important;
+}
+.gh-ext-testfile .meta {
+	/* I need help for choosing colors... */
+	background-image: linear-gradient(#eaf3fd, #a7caff) !important;
+}

@@ -1,3 +1,4 @@
+var TEST_FILE_REGEXP = /Tests?\//i;
 
 // Thanks StackOverflow... maybe overkill for my usage.
 // http://stackoverflow.com/a/14234618/53338
@@ -31,19 +32,31 @@ function toggleFileDataView(event) {
     } else {
         btn.innerHTML = 'Hide diff';
     }
-
 }
 
+function addHideShowButton(fileContainer) {
+    var btn = document.createElement('a');
+    btn.innerHTML = 'Hide diff';
+    btn.addEventListener('click', toggleFileDataView);
+    btn.className = 'minibutton';
+
+    fileContainer.querySelector('.actions .button-group').appendChild(btn);
+}
+
+function isTestFile(filename) {
+    return !!filename.match(TEST_FILE_REGEXP);
+}
 
 var files = document.querySelectorAll("#files .file");
 
 for(var i = 0; i < files.length; i++) {
     var file = files[i];
-    console.log('- file #'+i);
+    var filename = file.querySelector('.meta').dataset.path;
 
-    var btn = document.createElement('a');
-    btn.innerHTML = 'Hide diff';
-    btn.addEventListener('click', toggleFileDataView);
-    btn.className = 'minibutton';
-    file.querySelector('.actions .button-group').appendChild(btn);
+    // Add Hide/Show diff buttons on PR files changed
+    addHideShowButton(file);
+
+    if (isTestFile(filename)) {
+        file.classList.add('gh-ext-testfile');
+    }
 }
