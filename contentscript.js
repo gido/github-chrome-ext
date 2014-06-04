@@ -53,7 +53,6 @@ function markLine(event) {
     line.classList.toggle('gh-ext-line-marked');
 }
 
-
 var files = document.querySelectorAll("#files .file");
 
 for(var i = 0; i < files.length; i++) {
@@ -78,3 +77,34 @@ for(var i=0; i < linesOfCode.length; i++) {
 
     line.insertBefore(mark, line.querySelector('.add-line-comment'));
 }
+
+
+// add visit site button
+(function(window) {
+    var tmp = window.location.href.match('github.com/([^/]*)/([^/]*)');
+    if (!tmp || tmp.length < 3) {
+        return;
+    }
+
+    var user = tmp[1];
+    var repo = tmp[2];
+    var ghPageUrl = 'https://' + user + '.github.io/' + repo + '/';
+
+    var addGhPagesButton = function(e) {
+        var btn = [
+            '<li>',
+                '<a class="minibutton" href="'+ghPageUrl+'"><span class="octicon octicon-arrow-right"></span> Visit site</a>',
+            '</li>'
+        ].join('');
+
+        var headActions = document.querySelector('.pagehead-actions');
+        headActions.innerHTML = btn + headActions.innerHTML;
+    };
+
+    if (user && repo) {}
+    var request = new XMLHttpRequest();
+    request.onload = addGhPagesButton;
+    request.open('HEAD', ghPageUrl);
+    request.send();
+
+})(window);
