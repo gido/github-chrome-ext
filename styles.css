@@ -9,7 +9,7 @@
 }
 .gh-ext-testfile .meta {
     /* I need help for choosing colors... */
-    background-image: linear-gradient(#eaf3fd, #a7caff) !important;
+    color: #4b89d0 !important;
 }
 
 .gh-ext-add-line-mark {
