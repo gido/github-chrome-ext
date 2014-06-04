@@ -16,7 +16,10 @@
     }
   ],
   "permissions": [
-    "tabs"
+    "tabs",
+    "https://*.github.com/",
+    "https://*.github.io/",
+    "http://*.github.io/"
   ],
   "icons" : {
       "48" : "icon.png",
