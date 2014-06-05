@@ -91,6 +91,12 @@ for(var i=0; i < linesOfCode.length; i++) {
     var ghPageUrl = 'https://' + user + '.github.io/' + repo + '/';
 
     var addGhPagesButton = function(e) {
+        var status = this.status;
+
+        if (404 == status) {
+            return;
+        }
+
         var btn = [
             '<li>',
                 '<a class="minibutton" href="'+ghPageUrl+'"><span class="octicon octicon-arrow-right"></span> Visit site</a>',
@@ -101,7 +107,6 @@ for(var i=0; i < linesOfCode.length; i++) {
         headActions.innerHTML = btn + headActions.innerHTML;
     };
 
-    if (user && repo) {}
     var request = new XMLHttpRequest();
     request.onload = addGhPagesButton;
     request.open('HEAD', ghPageUrl);
