@@ -1,0 +1,25 @@
+
+div.recording div.file_recording.active_menu {
+    width: 300px !important;
+}
+ul.chosen-results li {
+    color: #000 !important;
+    font-size: 11px !important;
+    padding: 5px 6px !important;
+}
+ul.chosen-results li.highlighted {
+    color: #fff !important;
+}
+
+div.recording div.menu_content .close {
+    float: left;
+    width: 30px;
+}
+div.recording div.menu_content a.refresh {
+    margin-left: 10px;
+    color: #666;
+}
+div.recording div.menu_content a.refresh:hover {
+    color: #fff;
+    background-color: #666;
+}
