@@ -99,7 +99,7 @@ for(var i=0; i < linesOfCode.length; i++) {
 
         var btn = [
             '<li>',
-                '<a class="minibutton" href="'+ghPageUrl+'"><span class="octicon octicon-arrow-right"></span> Visit site</a>',
+                '<a class="btn btn-sm" href="'+ghPageUrl+'"><span class="octicon octicon-arrow-right"></span> Visit site</a>',
             '</li>'
         ].join('');
 
